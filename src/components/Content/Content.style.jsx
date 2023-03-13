@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 export const ContentContainer = styled.section`
-    grid-area: ${({dimension}) => dimension < 550 ? '2 / 1 / 3 / 2' : '1 / 2 / 2 / 3'};
+    grid-area: ${({dimension}) => dimension < 550 ? '2 / 1 / 3 / 3' : '1 / 2 / 3 / 3'};
     padding: 50px 20px 0;
     display: flex;
     flex-direction: column;

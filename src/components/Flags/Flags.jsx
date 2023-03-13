@@ -1,26 +1,24 @@
 import React, { useContext } from 'react';
 import { LanguagesContext } from '../../utils/context/context';
 import { FlagsContainer } from './Flags.style';
-import { ReactComponent as France } from '../../assets/flags/france.svg';
-import { ReactComponent as Spain } from '../../assets/flags/spain.svg';
-import { ReactComponent as UK } from '../../assets/flags/united-kingdom.svg';
+import france from '../../assets/flags/france.svg';
+import spain from '../../assets/flags/spain.svg';
+import uk from '../../assets/flags/united-kingdom.svg';
 
 export default function Flags({dimension}) {
   const { setLang } = useContext(LanguagesContext);
 
   function changeLang(e) {
     e.preventDefault();
-    const lang = e.target.parentElement.parentElement.getAttribute('data-lang') === null
-    ? e.target.parentElement.parentElement.parentElement.getAttribute('data-lang').toUpperCase() 
-    : e.target.parentElement.parentElement.getAttribute('data-lang').toUpperCase();
+    const lang = e.target.getAttribute('data-lang').toUpperCase();
     setLang(`${lang}`);
   }
 
   return (
     <FlagsContainer dimension={dimension}>
-      <button data-lang="fr" onClick={changeLang}><France /></button>
-      <button data-lang="es" onClick={changeLang}><Spain /></button>
-      <button data-lang="en" onClick={changeLang}><UK /></button>
+      <input type="image" src={france} onClick={changeLang} data-lang="fr" aria-label="change language to french"/>
+      <input type="image" src={spain} onClick={changeLang} data-lang="es" aria-label="change language to spanish"/>
+      <input type="image" src={uk} onClick={changeLang} data-lang="en" aria-label="change language to english"/>
     </FlagsContainer>
   )
 }
